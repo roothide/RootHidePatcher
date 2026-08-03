@@ -18,7 +18,7 @@ extension UIApplication {
     func alert(title: String, body: String, animated: Bool = true, withButton: Bool = true) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
-            if withButton { currentUIAlertController?.addAction(.init(title: "OK", style: .cancel)) }
+            if withButton { currentUIAlertController?.addAction(.init(title: NSLocalizedString("OK", comment: ""), style: .cancel)) }
             self.present(alert: currentUIAlertController!)
         }
     }
@@ -26,9 +26,9 @@ extension UIApplication {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if !noCancel {
-                currentUIAlertController?.addAction(.init(title: "Cancel", style: .cancel))
+                currentUIAlertController?.addAction(.init(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
             }
-            currentUIAlertController?.addAction(.init(title: "OK", style: noCancel ? .cancel : .default, handler: { _ in
+            currentUIAlertController?.addAction(.init(title: NSLocalizedString("OK", comment: ""), style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
             }))
             self.present(alert: currentUIAlertController!)

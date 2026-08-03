@@ -1,6 +1,6 @@
 Package: com.roothide.patcher
 Name: RootHide Patcher
-Version: 2.1.4
+Version: 2.1.5
 Architecture: iphoneos-arm64e
 Depends: firmware (>= 15.0), libxar1, ldid, file, dpkg, gawk, plutil(>= 0.2.2-1), uikittools(>= 2.1.6-4)
 Description: patch rootless package to roothide, not work for all packages.

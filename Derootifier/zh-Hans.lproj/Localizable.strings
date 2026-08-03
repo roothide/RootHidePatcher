@@ -1,0 +1,23 @@
+/* ContentView */
+"Select .deb file" = "选择 .deb 文件";
+"Convert .deb" = "转换 .deb";
+"Converting..." = "转换中...";
+"Please wait" = "请稍候";
+"Error(%d)" = "错误(%d)";
+"Done" = "完成";
+"->Sileo" = "->Sileo";
+"->Zebra" = "->Zebra";
+"->Share" = "->分享";
+"Directly Convert Simple Tweaks" = "直接转换简单插件";
+"Rootless Compat Layer" = "Rootless 兼容层";
+"Require Dynamic Patches" = "需要动态补丁";
+"Sileo will be automatically re-opened" = "Sileo 将会自动重新打开";
+
+/* Alert++ */
+"OK" = "确定";
+"Cancel" = "取消";
+
+/* CreditsView */
+"Made the app" = "制作了此应用";
+"Helped a lot, gave the idea to make this app" = "提供了大量帮助，并提出了制作此应用的灵感";
+"Tester, massive thanks" = "测试者，特别感谢";

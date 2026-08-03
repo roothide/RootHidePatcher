@@ -21,10 +21,10 @@ struct CreditsView: View {
                 
                 ScrollView {
                     VStack {
-                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/85764897?v=4"), name: "haxi0", description: "Made the app")
-                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/70823629?v=4"), name: "evelyneee", description: "Helped a lot, gave the idea to make this app")
-                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/81449663?v=4"), name: "NightwindDev", description: "Tester, massive thanks")
-                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/80824905?v=4"), name: "korboybeats", description: "Tester, massive thanks")
+                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/85764897?v=4"), name: "haxi0", description: NSLocalizedString("Made the app", comment: ""))
+                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/70823629?v=4"), name: "evelyneee", description: NSLocalizedString("Helped a lot, gave the idea to make this app", comment: ""))
+                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/81449663?v=4"), name: "NightwindDev", description: NSLocalizedString("Tester, massive thanks", comment: ""))
+                        creditView(imageURL: URL(string: "https://avatars.githubusercontent.com/u/80824905?v=4"), name: "korboybeats", description: NSLocalizedString("Tester, massive thanks", comment: ""))
                     }
                     .padding()
                 }

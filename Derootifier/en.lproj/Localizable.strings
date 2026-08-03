@@ -1,0 +1,23 @@
+/* ContentView */
+"Select .deb file" = "Select .deb file";
+"Convert .deb" = "Convert .deb";
+"Converting..." = "Converting...";
+"Please wait" = "Please wait";
+"Error(%d)" = "Error(%d)";
+"Done" = "Done";
+"->Sileo" = "->Sileo";
+"->Zebra" = "->Zebra";
+"->Share" = "->Share";
+"Directly Convert Simple Tweaks" = "Directly Convert Simple Tweaks";
+"Rootless Compat Layer" = "Rootless Compat Layer";
+"Require Dynamic Patches" = "Require Dynamic Patches";
+"Sileo will be automatically re-opened" = "Sileo will be automatically re-opened";
+
+/* Alert++ */
+"OK" = "OK";
+"Cancel" = "Cancel";
+
+/* CreditsView */
+"Made the app" = "Made the app";
+"Helped a lot, gave the idea to make this app" = "Helped a lot, gave the idea to make this app";
+"Tester, massive thanks" = "Tester, massive thanks";
