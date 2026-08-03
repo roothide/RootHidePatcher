@@ -27,6 +27,7 @@
 		842F70872ACEC1C7002E5574 /* AuxiliaryExecute+Spawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F70862ACEC1C7002E5574 /* AuxiliaryExecute+Spawn.swift */; };
 		8450CC402D06B4D200BFCA94 /* cctools in Resources */ = {isa = PBXBuildFile; fileRef = 8450CC3F2D06B4D200BFCA94 /* cctools */; };
 		845FA8552BE9B603009C564D /* AppFileShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FA8532BE9B603009C564D /* AppFileShare.m */; };
+		CC2A00042D08000000B20004 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC2A00032D08000000B20003 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,8 @@
 		8450CC3F2D06B4D200BFCA94 /* cctools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cctools; sourceTree = "<group>"; };
 		845FA8532BE9B603009C564D /* AppFileShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFileShare.m; sourceTree = "<group>"; };
 		845FA8542BE9B603009C564D /* AppFileShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFileShare.h; sourceTree = "<group>"; };
+		CC2A00012D08000000B20001 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CC2A00022D08000000B20002 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 				6DCF8E3329EA9E6F00D55A37 /* DerootifierApp.swift */,
 				6DCF8E3729EA9E7100D55A37 /* Assets.xcassets */,
 				6DCF8E3929EA9E7100D55A37 /* Preview Content */,
+				CC2A00032D08000000B20003 /* Localizable.strings */,
 			);
 			path = Derootifier;
 			sourceTree = "<group>";
@@ -233,6 +237,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 6DCF8E2729EA9E6F00D55A37;
 			packageReferences = (
@@ -257,10 +262,23 @@
 				842F706B2ACC3847002E5574 /* patch.sh in Resources */,
 				6DCF8E3B29EA9E7100D55A37 /* Preview Assets.xcassets in Resources */,
 				6DCF8E3829EA9E7100D55A37 /* Assets.xcassets in Resources */,
+				CC2A00042D08000000B20004 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CC2A00032D08000000B20003 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC2A00012D08000000B20001 /* Localizable.strings */,
+				CC2A00022D08000000B20002 /* Localizable.strings */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6DCF8E2C29EA9E6F00D55A37 /* Sources */ = {

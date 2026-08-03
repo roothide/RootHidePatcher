@@ -54,7 +54,7 @@ struct ContentView: View {
                 if let debfile = selectedFile {
                     Button("Convert .deb") {
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
-                        UIApplication.shared.alert(title: "Converting...", body: "Please wait", withButton: false)
+                        UIApplication.shared.alert(title: NSLocalizedString("Converting...", comment: ""), body: NSLocalizedString("Please wait", comment: ""), withButton: false)
                         DispatchQueue.global().async {
                             
                             let name = debfile.deletingPathExtension().lastPathComponent.replacingOccurrences(of: "iphoneos-arm64", with: "-a-r-c-h-").replacingOccurrences(of: "iphoneos-arm", with: "-a-r-c-h-").replacingOccurrences(of: "-a-r-c-h-", with: "iphoneos-arm64e")
@@ -74,24 +74,24 @@ struct ContentView: View {
                             DispatchQueue.main.async {
                                 UIApplication.shared.dismissAlert(animated: false) {
                                     if exitCode != 0 {
-                                        UIApplication.shared.alert(title: "Error(\(exitCode))", body: outputAux)
+                                        UIApplication.shared.alert(title: String(format: NSLocalizedString("Error(%d)", comment: ""), exitCode), body: outputAux)
                                         return
                                     }
                                     resetPatches()
                                     selectedFile = nil
-                                    
-                                    let alert = UIAlertController(title: "Done", message: outputAux, preferredStyle: .alert)
+
+                                    let alert = UIAlertController(title: NSLocalizedString("Done", comment: ""), message: outputAux, preferredStyle: .alert)
                                     if IsAppAvailable("org.coolstar.SileoStore") {
-                                        alert.addAction(.init(title: "->Sileo", style: .default, handler: { _ in
+                                        alert.addAction(.init(title: NSLocalizedString("->Sileo", comment: ""), style: .default, handler: { _ in
                                             ShareFileToApp("org.coolstar.SileoStore", jbroot(output.path))
                                         }))
                                     } else if IsAppAvailable("xyz.willy.Zebra") {
-                                        alert.addAction(.init(title: "->Zebra", style: .default, handler: { _ in
+                                        alert.addAction(.init(title: NSLocalizedString("->Zebra", comment: ""), style: .default, handler: { _ in
                                             ShareFileToApp("xyz.willy.Zebra", jbroot(output.path))
                                         }))
                                     }
-                                    
-                                    alert.addAction(.init(title: "->Share", style: .default, handler: { _ in
+
+                                    alert.addAction(.init(title: NSLocalizedString("->Share", comment: ""), style: .default, handler: { _ in
                                         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
                                         checkFileMngrs(path: output.path)
                                     }))
