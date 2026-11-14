@@ -240,13 +240,32 @@ fi
 
 #rm -f "$TEMPDIR_NEW"/DEBIAN/list "$TEMPDIR_NEW"/DEBIAN/md5sums
 
+# List LC_RPATH entries, optionally for one architecture.
 lsrpath() {
-    otool -l "$@" |
+    if [ "$1" = "-arch" ]; then
+        otool -arch "$2" -l "$3"
+    else
+        otool -l "$@"
+    fi |
     awk '
         /^[^ ]/ {f = 0}
         $2 == "LC_RPATH" && $1 == "cmd" {f = 1}
         f && gsub(/^ *path | \(offset [0-9]+\)$/, "") == 2
     ' | sort | uniq
+}
+
+# True if path exists in every architecture slice of the file.
+rpath_in_all_archs() {
+    local file=$1 path=$2 arch archs
+    archs=$(otool -l "$file" | $SED -n 's/.*(architecture \([^)]*\)).*/\1/p' | sort | uniq)
+    if [ -z "$archs" ]; then
+        lsrpath "$file" | grep -Fqx "$path"
+        return
+    fi
+    for arch in $archs; do
+        lsrpath -arch "$arch" "$file" | grep -Fqx "$path" || return 1
+    done
+    return 0
 }
 
 findcmd=(find "$TEMPDIR_NEW" -type f -size +0c \! -path "*/var/mobile/Library/pkgmirror/*")
@@ -263,11 +282,18 @@ done
   if echo $ftype | grep -q "Mach-O"; then
     $ECHO "=> $fpath"
     $ECHO -n "patch..."
-    lsrpath "$file" | while read line; do
+    lsrpath "$file" | while read -r line; do
         if [[ $line == /var/jb/* ]]; then
             newpath=${line/\/var\/jb\//@loader_path\/.jbroot\/}
-            LOG "change rpath" "$line" "$newpath"
-            I_N_T -rpath "$line" "$newpath" "$file"
+            # -rpath doesn't check the destination. Delete the dead /var/jb
+            # entry when .jbroot is already present in every slice.
+            if rpath_in_all_archs "$file" "$newpath"; then
+                I_N_T -delete_rpath "$line" "$file"
+                LOG "delete rpath" "$line"
+            else
+                I_N_T -rpath "$line" "$newpath" "$file"
+                LOG "change rpath" "$line" "$newpath"
+            fi
         fi
     done
     otool -L "$file" | tail -n +2 | cut -d' ' -f1 | tr -d "[:blank:]" | while read line; do
